@@ -1,0 +1,48 @@
+import math
+
+def find_lcm(numbers):
+    # Function to find LCM of two numbers
+    def lcm(x, y):
+        return abs(x * y) // math.gcd(x, y)
+
+    lcm_result = numbers[0]
+    for num in numbers[1:]:
+        lcm_result = lcm(lcm_result, num)
+    
+    return lcm_result
+
+def find_gcd(numbers):
+    # Function to find GCD of two numbers
+    def gcd(x, y):
+        return math.gcd(x, y)
+
+    gcd_result = numbers[0]
+    for num in numbers[1:]:
+        gcd_result = gcd(gcd_result, num)
+    
+    return gcd_result
+
+# Function to handle test cases
+def handle_test_cases():
+    test_cases = [
+        (3, [12, 25, 30]),
+        (2, [52, 25]),
+        (3, [17, 19, 11]),
+        (-2, [52, 60]),
+        (2, [30, 45])
+    ]
+    
+    for N, numbers in test_cases:
+        if N <= 0 or len(numbers) != N:
+            print(f"Invalid input for test case: N = {N}, numbers = {numbers}")
+            continue
+        
+        lcm_value = find_lcm(numbers)
+        gcd_value = find_gcd(numbers)
+        
+        print(f"Test Case: N = {N}, Numbers = {numbers}")
+        print(f"LCM = {lcm_value}")
+        print(f"GCD = {gcd_value}\n")
+
+# Run the test cases
+handle_test_cases()
