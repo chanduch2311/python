@@ -1,0 +1,26 @@
+def find_maximum(a, b, c):
+    try:
+        # Convert inputs to float to handle decimal inputs correctly
+        a = float(a)
+        b = float(b)
+        c = float(c)
+        
+        # Calculate maximum using built-in max function
+        max_number = max(a, b, c)
+        
+        return max_number
+    except ValueError:
+        # Handle case where inputs are not valid numbers
+        return "Invalid input. Please enter valid numeric values."
+
+# Input from user
+try:
+    num1, num2, num3 = input("Enter three numbers separated by space: ").split()
+    
+    # Call function to find maximum
+    result = find_maximum(num1, num2, num3)
+    
+    # Print the result
+    print("Output:", result)
+except ValueError:
+    print("Invalid input format. Please enter three numbers separated by space.")
