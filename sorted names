@@ -1,0 +1,24 @@
+def sort_names(names, order):
+    # Convert the input string of names into a list
+    name_list = [name.strip() for name in names.split(',')]
+    
+    if order.upper() == 'A':
+        sorted_names = sorted(name_list)  # Sort in ascending order
+    elif order.upper() == 'D':
+        sorted_names = sorted(name_list, reverse=True)  # Sort in descending order
+    else:
+        return "Invalid order choice. Please enter 'A' for ascending or 'D' for descending."
+    
+    return ' '.join(sorted_names)
+
+# Function to handle user input and test cases
+def main():
+    names = input("Enter the list of names separated by commas: ")
+    order = input("Enter the order (A for ascending, D for descending): ")
+    
+    sorted_names = sort_names(names, order)
+    print(f"Sorted Names: {sorted_names}")
+
+# Run the main function
+if __name__ == "__main__":
+    main()
